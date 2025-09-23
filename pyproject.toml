@@ -1,0 +1,47 @@
+[project]
+name = "httpcatcher-parser"
+version = "0.1.0"
+description = "Parser and HAR exporter for HTTP Catcher session files."
+authors = [{ name = "mkb79", email = "mkb79@hackitall.de" }]
+requires-python = ">=3.10,<3.14"
+readme = "README.md"
+license = "AGPL-3.0-only"
+keywords = [
+    "HTTP Catcher",
+    "HAR",
+    "binary parser",
+    "network analysis",
+    "reverse engineering"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU Affero General Public License v3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "brotli>=1.1.0",
+]
+
+[project.scripts]
+hc-parser = "httpcatcher_parser.hc_parser:main"
+hc-har = "httpcatcher_parser.hc_har:main"
+
+[tool.hatch.build.targets.sdist]
+include = ["src/httpcatcher_parser"]
+
+[tool.hatch.build.targets.wheel]
+include = ["src/httpcatcher_parser"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/httpcatcher_parser" = "httpcatcher_parser"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+required-version = ">=0.7.1"
