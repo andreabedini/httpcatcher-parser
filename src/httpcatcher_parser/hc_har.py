@@ -234,7 +234,7 @@ def _bytes_as_text_or_b64(b: bytes) -> Tuple[str, Optional[str]]:
     """Render bytes as text when reasonable, otherwise base64-encode.
 
     Heuristic: if more than ~15% of bytes are non-printable ASCII, the output is
-    returned as Base64 with ``encoding="base64"``; otherwise it's decoded as UTF\u20118
+    returned as Base64 with ``encoding="base64"``; otherwise it's decoded as UTF-8
     (fallback to latin-1).
 
     Args:
